@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaunchPad: 4-Month BTech Career Accelerator</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #93c5fd;
+            --text-color: #1f2937;
+            --light-bg: #f9fafb;
+            --dark-bg: #111827;
+            --success-color: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Who We Are Section */
+        .team-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .team-description {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .team-description p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .skill-pill {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background-color: #f0f0f0;
+            font-size: 16px;
+            font-weight: 500;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-pill img {
+            width: 20px;  /* Adjust the size of the icon */
+            height: 20px;  /* Ensure icons are proportionate */
+            margin-right: 8px;  /* Space between icon and text */
+        }
+
+        .skill-pill span {
+            font-weight: 500;
+        }
+        
+        .skills-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .highlight-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            flex: 1;
+            min-width: 250px;
+            transition: transform 0.3s ease;
+            border-top: 3px solid var(--primary-color);
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .highlight-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .highlight-card ul {
+            list-style-type: none;
+        }
+        
+        .highlight-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .highlight-card ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .program-overview {
+            background-color: var(--light-bg);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 5px;
+        }
+        
+        .timeline-block {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-block:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-block:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .timeline-block:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 22px;
+            right: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid white;
+        }
+        
+        .timeline-block:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid white;
+        }
+        
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            z-index: 1;
+            top: 15px;
+        }
+        
+        .timeline-block:nth-child(odd)::before {
+            right: -16px;
+        }
+        
+        .timeline-block:nth-child(even)::before {
+            left: -16px;
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 0;
+        }
+        
+        .weekly-schedule {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .tab-input {
+            display: none;
+        }
+        
+        .tab-label {
+            padding: 15px 30px;
+            background-color: #f1f5f9;
+            cursor: pointer;
+            font-weight: 600;
+            flex-grow: 1;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-label:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            order: 99;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .tab-input:checked + .tab-label {
+            background-color: white;
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .tab-input:checked + .tab-label + .tab-content {
+            display: block;
+        }
+        
+        .testimonial-section {
+            background-color: var(--light-bg);
+        }
+        
+        .testimonial-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-slide {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+        }
+        
+        .testimonial-slide p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-dot.active {
+            background-color: var(--primary-color);
+        }
+        
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        
+        .faq-question {
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 15px 20px;
+            background-color: white;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Modal container */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Modal content with glassmorphism */
+    .modal-content {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      color: #fff;
+      text-align: left;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+    }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-block {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-block:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-block:nth-child(odd) .timeline-content::after,
+            .timeline-block:nth-child(even) .timeline-content::after {
+                display: none;
+            }
+            
+            .timeline-block::before {
+                left: 15px;
+            }
+            
+            .timeline-block:nth-child(odd)::before {
+                right: auto;
+                left: 15px;
+            }
+            
+            .highlight-card {
+                min-width: 100%;
+            }
+            
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>LaunchPad: 4-Month BTech Career Accelerator</h1>
+            <p>Transforming final year BTech students into industry-ready professionals through weekend immersion in Python, Data Structures, AI/ML, Full Stack Development and more.</p>
+            <a href="#program-details" class="cta-button">Explore Program</a>
+        </div>
+    </header>
+
+    <section id="who-we-are">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who We Are</h2>
+            </div>
+            <div class="team-section">
+                <div class="team-description">
+                    <p>We are a team of accomplished professionals from IIT and NIT backgrounds with extensive experience working in leading MNCs including IBM, HSBC, Oracle, Phreesia, Adobe and many more. Our instructors bring real-world industry knowledge directly to the classroom, providing students with insights that bridge the gap between academic theory and professional practice.</p>
+                    <p>With our combined decades of experience in software development, data science, AI and machine learning, we've crafted a curriculum that directly addresses the skills gap facing many fresh graduates. Our placement program is designed based on actual hiring criteria we've encountered throughout our careers in the tech industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-overview" id="program-details">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program Overview</h2>
+            </div>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>Key Learning Outcomes</h3>
+                    <ul>
+                        <li>Hands-on proficiency in Python, DSA, System Design</li>
+                        <li>Real-world projects in ETL, AI/ML, Web Dev, CV</li>
+                        <li>Practical use of GitHub, Airflow, AWS, Tableau</li>
+                        <li>Portfolio website with hosted projects</li>
+                        <li>Interview-ready with mock tech + HR interviews</li>
+                    </ul>
+                </div>
+                <div class="highlight-card">
+                    <h3>Program Deliverables</h3>
+                    <ul>
+                        <li>6 completed, documented GitHub projects</li>
+                        <li>Deployed portfolio website with project demos</li>
+                        <li>Updated resume aligned to job descriptions</li>
+                        <li>Fully optimized LinkedIn profile</li>
+                        <li>2 rounds of mock interviews + peer feedback</li>
+                    </ul>
+                </div>
+                <div class="highlight-card">
+                    <h3>By Program Completion</h3>
+                    <ul>
+                        <li>Mastered Python, DSA, Git, Cloud, AI/ML</li>
+                        <li>Built and deployed 6 real-world projects</li>
+                        <li>Created a portfolio website and GitHub profile</li>
+                        <li>Finalized a job-ready resume and LinkedIn</li>
+                        <li>Gained confidence through mock interviews</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills-acquire">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills You Acquire</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-pill">
+                    <img src="https://www.svgrepo.com/show/354440/tensorflow.svg" alt="TensorFlow">
+                    <span>TensorFlow</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://www.svgrepo.com/show/306500/openai.svg" alt="OpenAI">
+                    <span>OpenAI</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub">
+                    <span>GitHub Copilot</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://www.svgrepo.com/show/354240/pytorch.svg" alt="PyTorch">
+                    <span>PyTorch</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gemini-color.png" alt="Gemini">
+                    <span>Gemini</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://images.seeklogo.com/logo-png/61/2/langchain-icon-logo-png_seeklogo-611655.png" alt="LangChain">
+                    <span>LangChain</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/huggingface-icon.png" alt="Hugging Face">
+                    <span>Hugging Face</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://cdn.iconscout.com/icon/premium/png-512-thumb/rag-file-1945963-1645471.png?f=webp&w=512" alt="RAG">
+                    <span>RAG</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://www.svgrepo.com/show/376344/python.svg" alt="Python">
+                    <span>Python</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://svgmix.com/uploads/skillicons/29026e-aws-dark.svg" alt="AWS">
+                    <span>AWS</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://www.svgrepo.com/show/353380/airflow.svg" alt="Airflow">
+                    <span>Airflow</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png" alt="React">
+                    <span>React</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://www.clipartmax.com/png/small/251-2512027_free-ben-malin-for-mongodb-icon-xkb-with-den-bosch-mongo-db.png" alt="MongoDB">
+                    <span>MongoDB</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://e7.pngegg.com/pngimages/978/465/png-clipart-learning-opencv-computer-vision-machine-learning-c-robotics-text-computer-thumbnail.png" alt="OpenCV">
+                    <span>OpenCV</span>
+                </div>
+                <div class="skill-pill">
+                    <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau">
+                    <span>Tableau</span>
+                </div>
+            </div>
+            <p class="skills-description">Our curriculum is specifically designed to give you hands-on experience with industry-standard technologies that employers are actively seeking. From AI/ML frameworks to cloud platforms and development tools, you'll build practical experience with the most in-demand skills in today's tech landscape.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>16-Week Curriculum</h2>
+            </div>
+            <div class="weekly-schedule">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Week</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Week 1</td>
+                            <td>DSA: Arrays, Strings, Time Complexity; Python Basics</td>
+                            <td>Aptitude: Quant + Logical; Resume & GitHub 101</td>
+                        </tr>
+                        <tr>
+                            <td>Week 2</td>
+                            <td>DSA: Linked Lists, Stacks, Queues; Python: Pandas, NumPy</td>
+                            <td>Git/GitHub Branching, Commits; Project 1 Ideation</td>
+                        </tr>
+                        <tr>
+                            <td>Week 3</td>
+                            <td>DSA: Searching & Sorting; Python: File I/O, Modules</td>
+                            <td>Project 1: Extract + Transform; Git, Docs</td>
+                        </tr>
+                        <tr>
+                            <td>Week 4</td>
+                            <td>Aptitude: DI; AI Tools: ChatGPT, Copilot</td>
+                            <td>Project 1: Load, Visualize; GitHub Push</td>
+                        </tr>
+                        <tr>
+                            <td>Week 5</td>
+                            <td>DSA: Trees & Graphs; ML Basics</td>
+                            <td>Project 2: Sign Language ML -- Data Prep</td>
+                        </tr>
+                        <tr>
+                            <td>Week 6</td>
+                            <td>DSA: DP; Cloud Basics (AWS)</td>
+                            <td>Project 2: Train/Test Model; GitHub Push</td>
+                        </tr>
+                        <tr>
+                            <td>Week 7</td>
+                            <td>AI Agents: LangChain, RAG; ETL Tools: Airflow</td>
+                            <td>Project 3: Medical AI Assistant -- Build</td>
+                        </tr>
+                        <tr>
+                            <td>Week 8</td>
+                            <td>Full Stack: HTML, CSS, React</td>
+                            <td>Portfolio Site Setup (v1); Resume Phase 1</td>
+                        </tr>
+                        <tr>
+                            <td>Week 9</td>
+                            <td>Backend: Django/Node.js + REST API</td>
+                            <td>Project 3: Deploy on EC2; GitHub Docs</td>
+                        </tr>
+                        <tr>
+                            <td>Week 10</td>
+                            <td>Aptitude: DI Advanced; Python OOP</td>
+                            <td>Project 4: Smart Traffic IoT Dashboard</td>
+                        </tr>
+                        <tr>
+                            <td>Week 11</td>
+                            <td>System Design; Computer Vision (OpenCV)</td>
+                            <td>Project 5: Smart Inventory System -- Build</td>
+                        </tr>
+                        <tr>
+                            <td>Week 12</td>
+                            <td>AI Ethics: SHAP, LIME; Resume Phase 2</td>
+                            <td>Project 5: Deploy on AWS; Interview Prep</td>
+                        </tr>
+                        <tr>
+                            <td>Week 13</td>
+                            <td>ETL + Tableau Dashboards; Automation</td>
+                            <td>Project 6 Ideation: KPI Dashboard</td>
+                        </tr>
+                        <tr>
+                            <td>Week 14</td>
+                            <td>Group Discussion; GitHub Finalization</td>
+                            <td>Project 6: Build + Tableau Dashboard</td>
+                        </tr>
+                        <tr>
+                            <td>Week 15</td>
+                            <td>Mock Interviews; LinkedIn Branding</td>
+                            <td>Job Application Strategy; Cert Prep</td>
+                        </tr>
+                        <tr>
+                            <td>Week 16</td>
+                            <td>Career Q&A; Final Reviews</td>
+                            <td>Final Portfolio Submission; Wrap-Up</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program Journey</h2>
+            </div>
+            <div class="tabs">
+                <input type="radio" name="tabs" id="tab1" class="tab-input" checked>
+                <label for="tab1" class="tab-label">Technical Skills</label>
+                <div class="tab-content">
+                    <h3>Comprehensive Technical Skill Development</h3>
+                    <p>Our program builds a solid foundation in critical industry skills:</p>
+                    <ul>
+                        <li><strong>Programming Fundamentals:</strong> Python, OOP, Data Structures & Algorithms</li>
+                        <li><strong>Web Development:</strong> Full stack capabilities with HTML, CSS, React, Django/Node.js</li>
+                        <li><strong>AI/ML:</strong> From basic ML concepts to advanced implementations with LangChain, RAG, OpenCV</li>
+                        <li><strong>Cloud & DevOps:</strong> Practical experience with AWS deployment, Git workflows, and Airflow</li>
+                        <li><strong>Data Visualization:</strong> Creating impactful dashboards with Tableau</li>
+                    </ul>
+                </div>
+                
+                <input type="radio" name="tabs" id="tab2" class="tab-input">
+                <label for="tab2" class="tab-label">Projects</label>
+                <div class="tab-content">
+                    <h3>Build 6 Industry-Relevant Projects</h3>
+                    <p>Gain hands-on experience by building and deploying these real-world projects:</p>
+                    <ol>
+                        <li><strong>ETL Data Pipeline:</strong> Extract, transform and visualize data with industry tools</li>
+                        <li><strong>Sign Language Recognition:</strong> ML model to interpret sign language gestures</li>
+                        <li><strong>Medical AI Assistant:</strong> Build and deploy an AI healthcare assistant on AWS</li>
+                        <li><strong>Smart Traffic IoT Dashboard:</strong> Creating interactive traffic monitoring visuals</li>
+                        <li><strong>Smart Inventory System:</strong> Full-stack inventory management application</li>
+                        <li><strong>KPI Dashboard:</strong> Professional business analytics dashboard with Tableau</li>
+                    </ol>
+                </div>
+                
+                <input type="radio" name="tabs" id="tab3" class="tab-input">
+                <label for="tab3" class="tab-label">Career Prep</label>
+                <div class="tab-content">
+                    <h3>Comprehensive Career Preparation</h3>
+                    <p>We prepare you for your job search with targeted career development:</p>
+                    <ul>
+                        <li><strong>Portfolio Development:</strong> Create a professional portfolio website to showcase your projects</li>
+                        <li><strong>GitHub Optimization:</strong> Learn to document and present your code professionally</li>
+                        <li><strong>Resume Building:</strong> Multi-phase resume development aligned with industry expectations</li>
+                        <li><strong>LinkedIn Branding:</strong> Optimize your profile to attract recruiters</li>
+                        <li><strong>Mock Interviews:</strong> Practice both technical and HR interviews with feedback</li>
+                        <li><strong>Aptitude Training:</strong> Regular preparation for quantitative and logical reasoning tests</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">Who is this program for?</div>
+                    <div class="faq-answer">
+                        <p>This program is specifically designed for final year BTech students who want to bridge the gap between academic knowledge and industry requirements. It's ideal for students looking to enhance their practical skills and secure good job placements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is the time commitment required?</div>
+                    <div class="faq-answer">
+                        <p>The program runs on weekends over 16 weeks (4 months). Each weekend includes full-day sessions on both Saturday and Sunday. Some additional time during weekdays is recommended for project work and practice.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I need prior programming experience?</div>
+                    <div class="faq-answer">
+                        <p>Basic programming knowledge is expected, but the program starts with fundamentals and gradually builds to more advanced concepts. Even students with minimal programming background can catch up with some additional effort.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How is this different from online courses?</div>
+                    <div class="faq-answer">
+                        <p>Unlike most online courses, this program focuses on applied learning through real-world projects, includes direct mentorship, provides mock interviews, and offers personalized career guidance. The emphasis is on creating a portfolio and being job-ready, not just acquiring theoretical knowledge.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Will there be placement assistance?</div>
+                    <div class="faq-answer">
+                        <p>While we don't guarantee placements, the program equips you with everything needed to succeed in tech interviews. Our career preparation includes resume building, LinkedIn optimization, mock interviews, and application strategies that significantly improve your chances of securing good job offers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" data-modal="contact">Contact Us</a>
+                <a href="#" data-modal="apply">Apply Now</a>
+                <a href="#" data-modal="about">About Us</a>
+                <a href="#" data-modal="terms">Terms</a>
+                <a href="#" data-modal="privacy">Privacy Policy</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 LaunchPad BTech Career Accelerator. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Structure -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div id="modal-body">
+        <!-- Dynamic content will be inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    const closeBtn = document.querySelector('.close-btn');
+
+    const contentMap = {
+      contact: `<h2>Contact Us</h2><p>Email: contact@launchpadbtech.com<br>Phone: +91 12345 67890</p>`,
+      about: `<h2>About Us</h2><p>LaunchPad BTech Career Accelerator is committed to empowering engineering students with industry-ready skills and job opportunities.</p>`,
+      terms: `<h2>Terms & Conditions</h2><p>By using our services, you agree to abide by our terms and conditions outlined herein.</p>`,
+      privacy: `<h2>Privacy Policy</h2><p>We respect your privacy and are committed to protecting your personal data. Our policies are detailed here.</p>`
+    };
+
+    document.querySelectorAll('.footer-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const key = e.target.getAttribute('data-modal');
+        if (key === 'apply') {
+          // Future functionality
+          alert("Apply Now functionality will be available soon.");
+          return;
+        }
+        modalBody.innerHTML = contentMap[key] || "<p>Content not found.</p>";
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+    };
+
+    window.onclick = (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  </script>
+
+    <script>
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add animation to elements when they come into view
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.highlight-card, .section-title, .timeline-block, .weekly-schedule, .tabs');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight * 0.85;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Apply initial styles for animation
+        document.querySelectorAll('.highlight-card, .section-title, .timeline-block, .weekly-schedule, .tabs').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        // Run animation on scroll and on load
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
